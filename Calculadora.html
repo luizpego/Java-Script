@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="portuguese">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(52, 214, 214);
+            font: normal 20pt Arial;
+        }
+    </style>
+</head>
+
+<body>
+    <h1><strong>Bem-Vindo a calculadora!</strong></h1>
+    <p>Digite os valores</p>
+    <input type="number" name="" id="v1">
+    <input type="number" name="" id="v2">
+    <div>Tipo de opereção(1 +,2 -,3 *, 4 /)</div>
+    <input type="number" name="" id="O">
+    <input type="button" value="CALCULAR" onclick="calcular()">
+    <div id="Resultado"></div>
+    <script>
+        function calcular() {
+            let N1 = document.getElementById('v1')
+            let N2 = document.getElementById('v2')
+            let O1 = document.getElementById('O')
+            let O2 = Number(O1.value)
+            let NN1 = Number(N1.value)
+            let NN2 = Number(N2.value)
+            let cal
+            let Resultado = document.getElementById('Resultado')
+            if (O2 == "" || NN1 == "" || NN2 == "") {
+                window.alert("Digite os valores nos campos abaixo")
+            }
+            else {
+                if (O2 === 1) {
+                    cal = NN1 + NN2
+                    Resultado.innerHTML = `A soma entre ${NN1} e ${NN2} é: ${cal}`
+                }
+                else if (O2 === 2) {
+                    cal = NN1 - NN2
+                    Resultado.innerHTML = `A subtração entre ${NN1} e ${NN2} é: ${cal}`
+                }
+                else if (O2 === 3) {
+                    cal = NN1 * NN2
+                    Resultado.innerHTML = `A multiplicação entre ${NN1} e ${NN2} é: ${cal}`
+                }
+                else {
+                    if (NN2 === 0 && O2 === 4) {
+                        window.alert("Impossível dividir por 0")
+                    }
+                    else {
+                        cal = NN1 / NN2
+                        Resultado.innerHTML = `A divisão entre ${NN1} e ${NN2} é: ${cal}`
+                    }
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>
